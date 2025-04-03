@@ -18,7 +18,10 @@ class ViewController: UIViewController {
 //    }
 //
     
-    let groupData = ["Food", "Medicine", "Streaming Services", "Cleaning Items"]
+    var groupData: [String] {
+        return DataManager.shared.groups
+    }
+
     
 
     override func viewDidLoad() {
@@ -29,6 +32,12 @@ class ViewController: UIViewController {
         groupListTableView.dataSource = self
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        groupListTableView.reloadData()
+    }
+
 
 }
 

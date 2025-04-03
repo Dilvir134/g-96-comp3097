@@ -17,6 +17,7 @@
 		2EF534C52D79379700E35FFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF534C32D79379700E35FFE /* Main.storyboard */; };
 		2EF534C72D79379900E35FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF534C62D79379900E35FFE /* Assets.xcassets */; };
 		2EF534CA2D79379900E35FFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF534C82D79379900E35FFE /* LaunchScreen.storyboard */; };
+		89069FA62D9EFF1900ACBED2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89069FA52D9EFF1900ACBED2 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2EF534C62D79379900E35FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EF534C92D79379900E35FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EF534CB2D79379900E35FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89069FA52D9EFF1900ACBED2 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				2EF534BD2D79379700E35FFE /* AppDelegate.swift */,
 				2EF534BF2D79379700E35FFE /* SceneDelegate.swift */,
+				89069FA52D9EFF1900ACBED2 /* DataManager.swift */,
 				2EF534C12D79379700E35FFE /* ViewController.swift */,
 				2EF534C32D79379700E35FFE /* Main.storyboard */,
 				2EF534C62D79379900E35FFE /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF534C22D79379700E35FFE /* ViewController.swift in Sources */,
+				89069FA62D9EFF1900ACBED2 /* DataManager.swift in Sources */,
 				186500E52D7A4D960040B743 /* itemViewController.swift in Sources */,
 				2EF534BE2D79379700E35FFE /* AppDelegate.swift in Sources */,
 				2EF534C02D79379700E35FFE /* SceneDelegate.swift in Sources */,
