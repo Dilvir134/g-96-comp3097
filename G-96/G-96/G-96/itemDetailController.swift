@@ -13,17 +13,21 @@ class itemDetailController: UIViewController {
     @IBOutlet var itemPriceLabel: UILabel!
     @IBOutlet var itemTotalLabel: UILabel!
     
-    var itemDetails : [String: Double]?
+    var itemDetails : ShoppingItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let itemDetails = itemDetails, let (itemName, price) = itemDetails.first {
+
+        if let item = itemDetails {
+            let price = item.price
+            let name = item.name ?? "Unnamed"
             let total = price + (price * 0.13)
-            itemNameLabel.text = "\(itemName)"
-            itemPriceLabel.text = "Price: $\(price)"
-            itemTotalLabel.text = "Total: $\(total)"
+
+            itemNameLabel.text = name
+            itemPriceLabel.text = String(format: "Price: $%.2f", price)
+            itemTotalLabel.text = String(format: "Total: $%.2f", total)
         }
     }
+
     
 }
