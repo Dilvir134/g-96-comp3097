@@ -18,6 +18,14 @@
 		2EF534C72D79379900E35FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF534C62D79379900E35FFE /* Assets.xcassets */; };
 		2EF534CA2D79379900E35FFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF534C82D79379900E35FFE /* LaunchScreen.storyboard */; };
 		89069FA62D9EFF1900ACBED2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89069FA52D9EFF1900ACBED2 /* DataManager.swift */; };
+		8984D3082D9F3ABA00AA5194 /* ShoppingModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8984D3062D9F3ABA00AA5194 /* ShoppingModel.xcdatamodeld */; };
+		8984D31D2D9F46E300AA5194 /* ShoppingItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8984D3192D9F46E300AA5194 /* ShoppingItem+CoreDataClass.swift */; };
+		8984D31E2D9F46E300AA5194 /* ShoppingItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8984D31A2D9F46E300AA5194 /* ShoppingItem+CoreDataProperties.swift */; };
+		8984D31F2D9F46E300AA5194 /* ShoppingGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8984D31B2D9F46E300AA5194 /* ShoppingGroup+CoreDataClass.swift */; };
+		8984D3202D9F46E300AA5194 /* ShoppingGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8984D31C2D9F46E300AA5194 /* ShoppingGroup+CoreDataProperties.swift */; };
+		8984D3222D9F584900AA5194 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8984D3212D9F584900AA5194 /* SummaryViewController.swift */; };
+		8984D3252D9F5E0100AA5194 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8984D3242D9F5E0100AA5194 /* DGCharts */; };
+		8984D3272D9F5E0100AA5194 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8984D3262D9F5E0100AA5194 /* DGChartsDynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +42,12 @@
 		2EF534C92D79379900E35FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EF534CB2D79379900E35FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89069FA52D9EFF1900ACBED2 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8984D3072D9F3ABA00AA5194 /* ShoppingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingModel.xcdatamodel; sourceTree = "<group>"; };
+		8984D3192D9F46E300AA5194 /* ShoppingItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShoppingItem+CoreDataClass.swift"; path = "G-96/ShoppingItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8984D31A2D9F46E300AA5194 /* ShoppingItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShoppingItem+CoreDataProperties.swift"; path = "G-96/ShoppingItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8984D31B2D9F46E300AA5194 /* ShoppingGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShoppingGroup+CoreDataClass.swift"; path = "G-96/ShoppingGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8984D31C2D9F46E300AA5194 /* ShoppingGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShoppingGroup+CoreDataProperties.swift"; path = "G-96/ShoppingGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8984D3212D9F584900AA5194 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8984D3272D9F5E0100AA5194 /* DGChartsDynamic in Frameworks */,
+				8984D3252D9F5E0100AA5194 /* DGCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +66,10 @@
 		2EF534B12D79379700E35FFE = {
 			isa = PBXGroup;
 			children = (
+				8984D3192D9F46E300AA5194 /* ShoppingItem+CoreDataClass.swift */,
+				8984D31A2D9F46E300AA5194 /* ShoppingItem+CoreDataProperties.swift */,
+				8984D31B2D9F46E300AA5194 /* ShoppingGroup+CoreDataClass.swift */,
+				8984D31C2D9F46E300AA5194 /* ShoppingGroup+CoreDataProperties.swift */,
 				2EF534BC2D79379700E35FFE /* G-96 */,
 				2EF534BB2D79379700E35FFE /* Products */,
 			);
@@ -71,10 +91,12 @@
 				89069FA52D9EFF1900ACBED2 /* DataManager.swift */,
 				2EF534C12D79379700E35FFE /* ViewController.swift */,
 				2EF534C32D79379700E35FFE /* Main.storyboard */,
+				8984D3062D9F3ABA00AA5194 /* ShoppingModel.xcdatamodeld */,
 				2EF534C62D79379900E35FFE /* Assets.xcassets */,
 				2EF534C82D79379900E35FFE /* LaunchScreen.storyboard */,
 				2EF534CB2D79379900E35FFE /* Info.plist */,
 				186500E42D7A4D960040B743 /* itemViewController.swift */,
+				8984D3212D9F584900AA5194 /* SummaryViewController.swift */,
 				186500E62D7A5C060040B743 /* groupConfirm.swift */,
 				186500E82D7A5DEB0040B743 /* itemConfirm.swift */,
 				186500EA2D7A62690040B743 /* itemDetailController.swift */,
@@ -98,6 +120,10 @@
 			dependencies = (
 			);
 			name = "G-96";
+			packageProductDependencies = (
+				8984D3242D9F5E0100AA5194 /* DGCharts */,
+				8984D3262D9F5E0100AA5194 /* DGChartsDynamic */,
+			);
 			productName = "G-96";
 			productReference = 2EF534BA2D79379700E35FFE /* G-96.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +152,9 @@
 				Base,
 			);
 			mainGroup = 2EF534B12D79379700E35FFE;
+			packageReferences = (
+				8984D3232D9F5E0100AA5194 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 2EF534BB2D79379700E35FFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,12 +184,18 @@
 			files = (
 				2EF534C22D79379700E35FFE /* ViewController.swift in Sources */,
 				89069FA62D9EFF1900ACBED2 /* DataManager.swift in Sources */,
+				8984D31D2D9F46E300AA5194 /* ShoppingItem+CoreDataClass.swift in Sources */,
+				8984D3082D9F3ABA00AA5194 /* ShoppingModel.xcdatamodeld in Sources */,
 				186500E52D7A4D960040B743 /* itemViewController.swift in Sources */,
+				8984D3222D9F584900AA5194 /* SummaryViewController.swift in Sources */,
 				2EF534BE2D79379700E35FFE /* AppDelegate.swift in Sources */,
 				2EF534C02D79379700E35FFE /* SceneDelegate.swift in Sources */,
+				8984D31E2D9F46E300AA5194 /* ShoppingItem+CoreDataProperties.swift in Sources */,
 				186500EB2D7A62690040B743 /* itemDetailController.swift in Sources */,
+				8984D3202D9F46E300AA5194 /* ShoppingGroup+CoreDataProperties.swift in Sources */,
 				186500E72D7A5C060040B743 /* groupConfirm.swift in Sources */,
 				186500E92D7A5DEB0040B743 /* itemConfirm.swift in Sources */,
+				8984D31F2D9F46E300AA5194 /* ShoppingGroup+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +411,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8984D3232D9F5E0100AA5194 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8984D3242D9F5E0100AA5194 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8984D3232D9F5E0100AA5194 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		8984D3262D9F5E0100AA5194 /* DGChartsDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8984D3232D9F5E0100AA5194 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGChartsDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		8984D3062D9F3ABA00AA5194 /* ShoppingModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8984D3072D9F3ABA00AA5194 /* ShoppingModel.xcdatamodel */,
+			);
+			currentVersion = 8984D3072D9F3ABA00AA5194 /* ShoppingModel.xcdatamodel */;
+			path = ShoppingModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2EF534B22D79379700E35FFE /* Project object */;
 }

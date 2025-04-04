@@ -5,29 +5,69 @@ class itemViewController: UIViewController {
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet var itemListTableView: UITableView!
     @IBOutlet var confirmItemButton: UIButton!
+    @IBOutlet var groupTotalLabel: UILabel!
     
     @IBAction func didTapButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
     
-    var selectedItem = "Food"
-    
-    var itemData = ["Food": ["Pizza": 15.0, "Biryani": 25.0],
-                    "Medicine": ["asdf": 10.0],
-                    "Streaming Services": ["Netflix": 100.0],
-                    "Cleaning Items": ["Lysol": 120.0]]
-    
-    var list: [String : Double]?
+    var selectedGroup: ShoppingGroup?
 
+    
+
+    
+    
+    
+    var items: [ShoppingItem] = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
         
-        list = itemData[selectedItem]
-        itemLabel.text = "\(selectedItem) List"
+        guard let group = selectedGroup else { return }
+        
+        if let groupItems = group.items as? Set<ShoppingItem> {
+            items = Array(groupItems).sorted(by: { $0.name ?? "" < $1.name ?? "" })
+            itemLabel.text = "\(selectedGroup?.name ?? "Unnamed Group") List"
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchItems()
+        itemListTableView.reloadData()
+        calculateTotal()
+    }
+    
+    func fetchItems() {
+        guard let group = selectedGroup else { return }
+        
+        if let groupItems = group.items as? Set<ShoppingItem> {
+            items = Array(groupItems).sorted(by: { $0.name ?? "" < $1.name ?? "" })
+        }
+    }
+    
+    func calculateTotal() {
+        var subtotal: Double = 0
+
+        for item in items {
+            let itemTotal = item.price * Double(item.quantity)
+            subtotal += item.taxApplicable ? itemTotal * 1.13 : itemTotal
+        }
+
+        groupTotalLabel.text = String(format: "Total: $%.2f", subtotal)
+    }
+
+
+
+
+
+
+
+
 }
 
 extension itemViewController: UITableViewDelegate {
@@ -41,34 +81,37 @@ extension itemViewController: UITableViewDelegate {
         if segue.identifier == "showDetail",
            let destinationVC = segue.destination as? itemDetailController,
            let indexPath = sender as? IndexPath {
-            if let list = list {
-                    let itemNames = Array(list.keys)
-                    let itemName = itemNames[indexPath.row]
-                    let price = list[itemName] ?? 0
 
-                    destinationVC.itemDetails = [itemName: price]
-                }
+            let item = items[indexPath.row]
+            destinationVC.itemDetails = item
+
+        } else if segue.identifier == "addItem",
+                  let destinationVC = segue.destination as? itemConfirm {
+            destinationVC.selectedGroup = selectedGroup
         }
     }
+
+
+
 }
 
 extension itemViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list?.count ?? 0
+        return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
-        
-        if let list = list {
-                let itemNames = Array(list.keys)
-                let itemName = itemNames[indexPath.row]
-                let price = list[itemName] ?? 0
 
-                cell.textLabel?.text = "\(itemName) - $\(price)"
-            }
-            
-            return cell
+        let item = items[indexPath.row]
+        let name = item.name ?? "Unnamed"
+        let price = item.price
+        let quantity = item.quantity
+        let total = price * Double(quantity)
+
+        cell.textLabel?.text = "\(name) • Qty: \(quantity) • $\(String(format: "%.2f", total))"
+        return cell
     }
+
 }

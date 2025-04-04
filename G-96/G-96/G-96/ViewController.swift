@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
     @IBOutlet var groupListTableView: UITableView!
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     
 //    @IBOutlet var confirmGroupButton: UIButton!
 //
@@ -18,9 +22,7 @@ class ViewController: UIViewController {
 //    }
 //
     
-    var groupData: [String] {
-        return DataManager.shared.groups
-    }
+    var groups : [ShoppingGroup] = []
 
     
 
@@ -35,8 +37,21 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchGroups()
         groupListTableView.reloadData()
     }
+    
+    func fetchGroups() {
+        let request: NSFetchRequest<ShoppingGroup> = ShoppingGroup.fetchRequest()
+        
+        do {
+            groups = try context.fetch(request)
+        } catch {
+            print("❌ Failed to fetch groups: \(error)")
+        }
+    }
+
+
 
 
 }
@@ -57,8 +72,12 @@ extension ViewController: UITableViewDelegate {
         if segue.identifier == "groupSegue",
            let destinationVC = segue.destination as? itemViewController,
            let indexPath = sender as? IndexPath {
-            destinationVC.selectedItem = groupData[indexPath.row]
+            destinationVC.selectedGroup = groups[indexPath.row]
         }
+        
+        if segue.identifier == "showSummary" {
+                // Nothing needed for now, no data is being passed
+            }
     }
 
 
@@ -67,14 +86,16 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupData.count;
+        return groups.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
-        cell.textLabel?.text = groupData[indexPath.row]
+        let group = groups[indexPath.row]
+        cell.textLabel?.text = group.name ?? "Unnamed Group"
         return cell
     }
+
 }
 
 
